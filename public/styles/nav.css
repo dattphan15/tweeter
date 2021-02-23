@@ -1,0 +1,40 @@
+/* html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+} */
+
+/*
+ * Global layout stuff
+ */
+
+/* body {
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
+} */
+
+nav {
+  list-style-type: none;
+  /* color: #FFFFFF; */
+  background-color: #4056A1;
+  /* font-family: 'Bungee', sans-serif; */
+  margin: 0;
+  padding: 20px;
+  height: 120px;
+  display: flex;
+}
+
+span {
+  font-family: 'Bungee', sans-serif;
+  color: #FFFFFF;
+  margin: 1.5em;
+}
+
+#write-tweet {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
