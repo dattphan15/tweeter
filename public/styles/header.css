@@ -1,0 +1,47 @@
+.site-header {
+  position: relative;
+  background-color:  #4056A1;
+  height: 400px;
+  width: 100%;
+}
+
+.wrapper {
+  max-width: 1140px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color:  #4056A1;
+}
+
+.header-avatar {
+  background-color: #5f4fa1;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.user-name {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+bg-image {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}

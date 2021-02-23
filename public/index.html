@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -23,20 +25,28 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
   </head>
 
-  <body>
+
     <!-- Top nav bar (fixed) -->
     <header class="site-header">
       <div class="wrapper site-header__wrapper">
         <span class="logo">Tweeter</span>
+
     <nav class="nav">
         <ul class="nav__wrapper">
             <span class="write-tweet"> <strong>Write</strong> a new tweet</span>
         </ul>
-   
     </nav>
   </div>
+
+  <div class="header-avatar" >
+    <bg-image></bg-image>
+    <img src="/images/profile-hex.png"> 
+    <h2 class="user-name">Kevin Phan</h2>
+</div>
   </header>
+
     <!-- Page-specific (main) content here -->
+    <body>
     <main class="container"></main>
   </body>
 </html>

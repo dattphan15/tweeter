@@ -1,8 +1,3 @@
-.site-header {
-  position: relative;
-  background-color:  #4056A1;
-}
-
 .logo {
   font-family: 'Bungee', sans-serif;
   color: #FFFFFF;
@@ -50,20 +45,3 @@ ul {
   margin-inline-end: 0px;
   padding-inline-start: 40px;
 }
-
-.wrapper {
-  max-width: 1140px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.site-header__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
