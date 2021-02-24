@@ -31,15 +31,19 @@
 
 
     <!-- Top nav bar (fixed) -->
-    <header class="site-header">
+    
+    
+    <!-- <nav class="nav">
+      <ul class="nav__wrapper">
+          <span class="write-tweet"> <strong>Write</strong> a new tweet</span>
+      </ul>
+  </nav> -->
+
+
+  <!-- purple blackground image -->
+    <!-- <header class="site-header">
       <div class="wrapper site-header__wrapper">
         <span class="logo">Tweeter</span>
-
-    <nav class="nav">
-        <ul class="nav__wrapper">
-            <span class="write-tweet"> <strong>Write</strong> a new tweet</span>
-        </ul>
-    </nav>
   </div>
 
   <div class="header-avatar" >
@@ -50,22 +54,31 @@
   </header>
 
     <!-- Page-specific (main) content here -->
-    <body>
-    <main class="container">
-      
-      <!-- Tweet Form -->
+  <body>
+    <nav> 
+      <span class="logo">Tweeter</span>
+      <span>Write a new tweet</span>
+    </nav>
+    <header class="main-header">
+      <div>
+        <img src="/images/profile-hex.png"> 
+      </div>
+      <div>
+          <h2>Your Name</h2>
+      </div> 
+    </header>
+    <main class="container"> 
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets" enctype="application/x-www-form-urlencoded">
+        <form>
           <label for="tweet-text">What are you humming about?</label>
-          <textarea type="text" id="tweet-text"></textarea>
+          <textarea name="text" id="tweet-text"></textarea>
           <div>
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-      </section>
- 
+      </section>  
     </main>
   </body>
 </html>

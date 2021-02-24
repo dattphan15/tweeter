@@ -1,8 +1,17 @@
-.new-tweet {
-  /* display: flex; */
+
+
+.new-tweet form {
+  display: flex;
+  flex-direction: column;
 }
 
-#tweet-text {
+.new-tweet form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* #tweet-text {
   position: absolute;
   bottom: 30px;
   border: none;
@@ -26,4 +35,4 @@ input {
 
 .turnRed {
   color: red;
-}
+} */ 

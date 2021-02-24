@@ -1,10 +1,6 @@
 $(document).ready(function() {
   console.log("We're connected!");
 
-  $('textarea').hover((event) => {
-    console.log('hovered over text area!', this);
-  });
-
   $('#tweet-text').on("input", function() {
     console.log($(this).siblings("div").find("output"));
     let length = $(this).val().length;
@@ -21,4 +17,5 @@ $(document).ready(function() {
   $('textarea').on("click", function() {
     console.log(this);
   });
+
 });
