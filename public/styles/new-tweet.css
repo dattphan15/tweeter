@@ -1,5 +1,3 @@
-
-
 .new-tweet form {
   display: flex;
   flex-direction: column;
@@ -10,6 +8,40 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.turnRed {
+  color: red;
+}
+
+.avatar-name {
+  display: flex;
+}
+
+article.tweet-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid red;
+  margin: 50px 0;
+}
+
+article.tweet-container:hover {
+  box-shadow: 10px 10px #add8e6bd;
+}
+
+article.tweet-container header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+article.tweet-container footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
 
 /* #tweet-text {
   position: absolute;
@@ -33,6 +65,4 @@ input {
 
 }
 
-.turnRed {
-  color: red;
-} */ 
+ */ 
