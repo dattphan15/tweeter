@@ -1,8 +1,8 @@
 /*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+* Client-side JS logic goes here
+* jQuery is already loaded
+* Reminder: Use (and do all your DOM work in) jQuery's document ready function
+*/
 
 
 // Fake data taken from initial-tweets.json
@@ -35,18 +35,17 @@ $(document).ready(function () {
   console.log("client script loaded");
   console.log("data:", data);
 
-const renderTweets = function(tweets) {
-  for (let tweet of tweets) {
-    const tweetAppended = createTweetElement(tweet);
-    $('.tweet-container').append(tweetAppended);
+  const renderTweets = function(tweets) {
+    for (let tweet of tweets) {
+      const tweetAppended = createTweetElement(tweet);
+      $('.tweet-container').append(tweetAppended);
+    }
   }
-}
-// calls createTweetElement for each tweet
-// takes return value and appends it to the tweets container
 
-const createTweetElement = function(tweet) {
-  let $tweet =
-  `      <article class="tweet-container">
+
+  const createTweetElement = function(tweet) {
+    const $tweet = `
+      <article class="tweet-container">
         <header>
           <div class="avatar-name">
             <img class="avatar-img" src="${tweet.user.avatars}">
@@ -66,9 +65,28 @@ const createTweetElement = function(tweet) {
         </footer>
       </article>`
 
-  return $tweet;
+    return $tweet;
   }
 
-renderTweets(data);
+  renderTweets(data);  
+
+  $("form").on("submit", function(event) {
+    event.preventDefault();
+
+    const serializeData = $(this).serialize();
+    console.log("serializeData: ", serializeData);
+
+    $.ajax(
+      "/tweets/", {
+      method: 'POST',
+      data: serializeData 
+    }).then(result => {
+      console.log("result: ", result);
+    }).catch(err => {
+      console.log("ajax error caught");
+      console.log(err); // error
+    });
+  });
+
 
 })
