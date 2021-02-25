@@ -69,26 +69,37 @@ $(document).ready(function () {
 
   // renderTweets(data);  
   
-  const loadTweets = function() {
-    const loadTweetData = renderTweets(data);
-    $.ajax({
-      url: "/tweets",
-      method: "GET",
-      data: loadTweetData
-    }).then(result => {
-      console.log("load tweet result: ", result);
-    }).catch(err => {
-      console.log("ajax error caught");
-      console.log(err); // error
-    });
-  }
-  loadTweets();
+  // const loadTweets = function() {
+  //   const loadTweetData = renderTweets(data);
+  //   $.ajax({
+  //     url: "/tweets",
+  //     method: "GET",
+  //     data: loadTweetData
+  //   }).then(result => {
+  //     console.log("load tweet result: ", result);
+  //   }).catch(err => {
+  //     console.log("ajax error caught");
+  //     console.log(err); // error
+  //   });
+  // }
+  // loadTweets();
+
 
   $("form").on("submit", function(event) {
-    // event.preventDefault();
+    event.preventDefault();
+
+    // Counter value
+    let tweetContent = document.getElementById("counter");
+    console.log("tweetContent: ", $(tweetContent).val());
+    console.log("#tweet-text: ", $("#tweet-text").val());
+    
+    if (!$("#tweet-text").val()) {
+      alert("Cannot post an empty tweet!");
+    };
 
     const serializeData = $(this).serialize();
     console.log("serializeData: ", serializeData);
+    
 
     $.ajax({
       url: "/tweets",

@@ -1,7 +1,7 @@
 $(document).ready(function() {
   console.log("We're connected!");
 
-  $('#tweet-text').on("input", function() {
+  $("#tweet-text").on("input", function() {
     console.log($(this).siblings("div").find("output"));
     let length = $(this).val().length;
     let counter = $(this).siblings("div").find("output");
@@ -14,8 +14,9 @@ $(document).ready(function() {
     }
   });
 
-  $('textarea').on("click", function() {
+  $("textarea").on("click", function() {
     console.log(this);
   });
 
 });
+
