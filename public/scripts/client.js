@@ -69,6 +69,6 @@ const createTweetElement = function(tweet) {
   return $tweet;
   }
 
-console.log(renderTweets(data));
+renderTweets(data);
 
 })
