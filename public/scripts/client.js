@@ -35,36 +35,40 @@ $(document).ready(function () {
   console.log("client script loaded");
   console.log("data:", data);
 
-
 const renderTweets = function(tweets) {
-// loops through tweets
-  $.each(data, (key) => {
-    createTweetElement.append(
-      
-    )
-
-  })
+  for (let tweet of tweets) {
+    const tweetAppended = createTweetElement(tweet);
+    $('.tweet-container').append(tweetAppended);
+  }
+}
 // calls createTweetElement for each tweet
 // takes return value and appends it to the tweets container
-}
-
 
 const createTweetElement = function(tweet) {
   let $tweet =
-  `<article class="tweet">
-    <header>
-      <a>Ronda User</a> <output>Username</output>
-    </header>
-    <label>Hello World! Tweet Goes Here.</label>
-    <br>
-    <footer>
-      <output>DATE</output> <button>RETWEET/SHARE/LIKE</button>
-    </footer>
-  </article>`
+  `      <article class="tweet-container">
+        <header>
+          <div class="avatar-name">
+            <img class="avatar-img" src="${tweet.user.avatars}">
+            <p>${tweet.user.name}</p> 
+          </div>
+          <p>${tweet.user.handle}</p>
+        </header>
+        <p>${tweet.content.text}</p>
+        <br>
+        <footer>
+          <p>${tweet.content.date}</p> 
+          <div>
+            <button>RETWEET</button>
+            <button>SHARE</button>
+            <button>LIKE</button>
+        </div>
+        </footer>
+      </article>`
 
   return $tweet;
-}
+  }
 
-renderTweets(data);
+console.log(renderTweets(data));
 
 })
