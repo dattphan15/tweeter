@@ -89,12 +89,14 @@ $(document).ready(function () {
     event.preventDefault();
 
     // Counter value
-    let tweetContent = document.getElementById("counter");
-    console.log("tweetContent: ", $(tweetContent).val());
-    console.log("#tweet-text: ", $("#tweet-text").val());
+    let tweetContent = $("#tweet-text").val();
+    console.log("tweetContent: ", tweetContent);
     
-    if (!$("#tweet-text").val()) {
+    if (!tweetContent) {
       alert("Cannot post an empty tweet!");
+    };
+    if (tweetContent.length > 140) {
+      alert("Too many characters in tweet!");
     };
 
     const serializeData = $(this).serialize();
