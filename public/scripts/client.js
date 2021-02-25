@@ -42,7 +42,6 @@ $(document).ready(function () {
     }
   }
 
-
   const createTweetElement = function(tweet) {
     const $tweet = `
       <article class="tweet-container">
@@ -68,18 +67,33 @@ $(document).ready(function () {
     return $tweet;
   }
 
-  renderTweets(data);  
+  // renderTweets(data);  
+  
+  const loadTweets = function() {
+    const loadTweetData = renderTweets(data);
+    $.ajax({
+      url: "/tweets",
+      method: "GET",
+      data: loadTweetData
+    }).then(result => {
+      console.log("load tweet result: ", result);
+    }).catch(err => {
+      console.log("ajax error caught");
+      console.log(err); // error
+    });
+  }
+  loadTweets();
 
   $("form").on("submit", function(event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     const serializeData = $(this).serialize();
     console.log("serializeData: ", serializeData);
 
-    $.ajax(
-      "/tweets/", {
-      method: 'POST',
-      data: serializeData 
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: serializeData
     }).then(result => {
       console.log("result: ", result);
     }).catch(err => {
