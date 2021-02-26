@@ -11,29 +11,25 @@
   justify-content: center;
 }
 
-
-
 @media only screen and (min-width: 768px) {
   .main-header {
-    background-color: red;
+    background-color: #4056a1;
     justify-content: flex-start;
     padding: 2em 0 0 0;
   }
-  
-
 }
 
 @media only screen and (min-width: 1024px) {
   .main-header {
-    background-color: green;
+    background-color: #4056a1;
     justify-content: flex-start;
     padding: 2em 0 0 0;
+    margin: 5%;
   }
 
   div.main-div {
     display: flex;
     margin-top: 10%;
   }
-
 }
 

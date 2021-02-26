@@ -52,13 +52,11 @@ article.tweet-container:hover {
   margin: 20px;
 }
 
-/* #tweet-text {
-  position: absolute;
-  bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #d4d4d4;
-  padding: 10px;
-  width: 65%;
-  background: transparent;
+header.tweet-head {
+  display: flex;
+  justify-content: space-between;
 }
 
+label.labelarea {
+  font-weight: 300;
+}

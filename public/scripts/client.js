@@ -3,8 +3,6 @@
 * jQuery is already loaded
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
-
-
 // Fake data taken from initial-tweets.json
 const data = [
   {
@@ -44,10 +42,27 @@ const renderTweets = function(tweets) {
   }
 }
 
+const timeStamp = function(date) {
+  let timeElapsedinSeconds = (Date.now() - date) / 1000;
+  let daysPassed = Math.floor(timeElapsedinSeconds /  (60 * 60 * 24));
+  let hoursPassed = Math.floor(timeElapsedinSeconds /  (60 * 60 * 24 * 24));
+  let minutesPassed = Math.floor(timeElapsedinSeconds /  (60 * 60 * 24 * 60));
+
+    if (daysPassed > 1) {
+      return daysPassed + " days ago";
+    }
+    if (hoursPassed > 1) {
+      return hoursPassed + " hours ago";
+    }
+    else {
+      return minutesPassed + " minutes ago";
+    }
+}
+
 const createTweetElement = function(tweet) {
   const $tweet = `
     <article class="tweet-container">
-      <header>
+      <header class="tweet-head">
         <div class="avatar-name">
           <img class="avatar-img" src="${tweet.user.avatars}">
           <p>${tweet.user.name}</p> 
@@ -56,21 +71,19 @@ const createTweetElement = function(tweet) {
       </header>
       <p class="punderline">${escape(tweet.content.text)}</p>
       <footer class="f-line">
-        <p>${tweet.content.date}</p> 
+        <p>${timeStamp(tweet.created_at)}</p> 
         <div>
-          <button>RETWEET</button>
-          <button>SHARE</button>
-          <button>LIKE</button>
+          <span>&#10084</span>
+          <span>&#8617</span>
+          <span>&#9873</span>
       </div>
       </footer>
     </article>`
-
   return $tweet;
 }
 
 $(document).ready(function () {
   $(".error-slide").hide()
-  
   const loadTweets = function() {
     $.ajax({
       url: "/tweets",
@@ -79,7 +92,6 @@ $(document).ready(function () {
       renderTweets(result);
     }).catch(err => {
       console.log("ajax error caught");
-      console.log(err); // error
     });
   }
   loadTweets();
@@ -87,11 +99,8 @@ $(document).ready(function () {
 
   $("form").on("submit", function(event) {
     event.preventDefault();
-
     // Counter value
     let tweetContent = $("#tweet-text").val();
-    console.log("tweetContent: ", tweetContent);
-    
     if (!tweetContent) {
       $(".error-text h3").html("Cannot post an empty tweet!");
       $(".error-slide").slideDown();
@@ -104,9 +113,6 @@ $(document).ready(function () {
     };
 
     const serializeData = $(this).serialize();
-    console.log("serializeData: ", serializeData);
-    
-
     $.ajax({
       url: "/tweets",
       method: "POST",
@@ -127,7 +133,6 @@ $(document).ready(function () {
       })
         .catch(err => {
           console.log("ajax error caught");
-          console.log(err); // error
       });
     });
 

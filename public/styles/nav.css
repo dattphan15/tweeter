@@ -15,33 +15,3 @@ nav {
   font-family: 'Bungee', sans-serif;
 }
 
-/* nav {
-  list-style-type: none;
-  background-color: #4056A1;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-.nav__item a {
-  display: block;
-  padding: 1.5rem 1rem;
-}
-
-span {
-  display: flex;
-}
-
-span.write-tweet {
-  align-items: center;
-  font-family: 'Source Sans Pro', sans-serif;
-  color: #FFFFFF;
-  letter-spacing: normal;
-  
-} */
-
