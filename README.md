@@ -7,7 +7,6 @@ This repository is the starter code for the project: Students will fork and clon
 ## Final Product
 
 !["Screenshot of Tweeter App on Desktop"](https://github.com/dattphan15/tweeter/blob/master/docs/Tweeter-Desktop.png)
-!["Screenshot of Tweeter App on Tablet"](https://github.com/dattphan15/tweeter/blob/master/docs/Tweeter-Tablet.png)
 
 ## Getting Started
 
