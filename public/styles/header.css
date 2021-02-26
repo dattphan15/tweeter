@@ -3,25 +3,37 @@
   width: 100%;
   margin-top: 120px;
   color: white;
-  background-color: #5f4fa1;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  background-color: #4056a1;
+  background-image: url("https://www.transparenttextures.com/patterns/dust.png");
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  .main-header {
+    background-color: red;
+    justify-content: flex-start;
+    padding: 2em 0 0 0;
+  }
+  
 
 }
 
 @media only screen and (min-width: 1024px) {
   .main-header {
+    background-color: green;
     justify-content: flex-start;
     padding: 2em 0 0 0;
   }
+
+  div.main-div {
+    display: flex;
+    margin-top: 10%;
+  }
+
 }
 
-@media only screen and (min-width: 768px) {
-  .main-header {
-    justify-content: flex-start;
-    padding: 2em 0 0 0;
-  }
-}

@@ -38,37 +38,39 @@
         <span class="logo">Tweeter</span>
         <span>Write a new tweet</span>
       </nav>
-      <header class="main-header">
-        <div class="hex">
-          <img class="avatar-img" src="/images/profile-hex.png"/> 
-        </div>
-        <div>
-            <h2>Kevin Phan</h2>
-        </div> 
-      </header>
-
-
-    <!-- Page-specific (main) content here -->
-
-    <main class="container"> 
-      <section class="new-tweet">
-        <div class="error-slide">
-          <div class="error-text"><h3> errormessage </h3></div>
-        </div>
-        <h2>Compose Tweet</h2>
-        <form>
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" id="counter" for="tweet-text">140</output>
+      <div class="main-div">  
+        <header class="main-header">
+          <div class="hex">
+            <img class="avatar-img" src="/images/profile-hex.png"/> 
           </div>
-        </form>
-      </section> 
-      
-      <div class="tweet-feed">
-      </div>
-    </main>
+          <div>
+              <h2>Kevin Phan</h2>
+          </div> 
+  
+        </header>
 
+
+      <!-- Page-specific (main) content here -->
+
+      <main class="container"> 
+        <section class="new-tweet">
+          <div class="error-slide">
+            <div class="error-text"><h3> errormessage </h3></div>
+          </div>
+          <h2>Compose Tweet</h2>
+          <form>
+            <label class="labelarea" for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div>
+              <button class="twtbutton" type="submit">Tweet</button>
+              <output name="counter" id="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section> 
+        
+      <div class="tweet-feed">
+        </div>
+      </main>
+    </div>   
   </body>
 </html>

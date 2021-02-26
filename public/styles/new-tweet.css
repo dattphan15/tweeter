@@ -1,3 +1,17 @@
+.twtbutton {
+  font-family: 'Bungee', sans-serif;
+  background-color: #4056a1;;
+  color: rgb(255, 255, 255);
+}
+
+output#counter {
+  font-family: 'Bungee', sans-serif;
+}
+
+textarea#text-tweet {
+  background-color: transparent !important;
+}
+
 .new-tweet form {
   display: flex;
   flex-direction: column;
@@ -17,31 +31,26 @@
   display: flex;
 }
 
+footer.f-line {
+  border-top: 5px solid rgb(75, 74, 74);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 article.tweet-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid red;
+  border: 5px solid rgb(75, 74, 74);
   margin: 50px 0;
+  padding: 40px;
 }
 
 article.tweet-container:hover {
   box-shadow: 10px 10px #add8e6bd;
+  margin: 20px;
 }
-
-article.tweet-container header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-article.tweet-container footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-
 
 /* #tweet-text {
   position: absolute;
@@ -53,16 +62,3 @@ article.tweet-container footer {
   background: transparent;
 }
 
-.counter {
-
-}
-
-form {
-
-}
-
-input {
-
-}
-
- */ 

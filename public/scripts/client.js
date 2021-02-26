@@ -54,9 +54,8 @@ const createTweetElement = function(tweet) {
         </div>
         <p>${tweet.user.handle}</p>
       </header>
-      <p>${escape(tweet.content.text)}</p>
-      <br>
-      <footer>
+      <p class="punderline">${escape(tweet.content.text)}</p>
+      <footer class="f-line">
         <p>${tweet.content.date}</p> 
         <div>
           <button>RETWEET</button>
