@@ -31,41 +31,43 @@ const data = [
   }
 ]
 
+const renderTweets = function(tweets) {
+  for (let tweet of tweets) {
+    const tweetAppended = createTweetElement(tweet);
+    $('.tweet-container').append(tweetAppended);
+  }
+}
+
+const createTweetElement = function(tweet) {
+  const $tweet = `
+    <article class="tweet-container">
+      <header>
+        <div class="avatar-name">
+          <img class="avatar-img" src="${tweet.user.avatars}">
+          <p>${tweet.user.name}</p> 
+        </div>
+        <p>${tweet.user.handle}</p>
+      </header>
+      <p>${tweet.content.text}</p>
+      <br>
+      <footer>
+        <p>${tweet.content.date}</p> 
+        <div>
+          <button>RETWEET</button>
+          <button>SHARE</button>
+          <button>LIKE</button>
+      </div>
+      </footer>
+    </article>`
+
+  return $tweet;
+}
+
 $(document).ready(function () {
   console.log("client script loaded");
   console.log("data:", data);
 
-  const renderTweets = function(tweets) {
-    for (let tweet of tweets) {
-      const tweetAppended = createTweetElement(tweet);
-      $('.tweet-container').append(tweetAppended);
-    }
-  }
-
-  const createTweetElement = function(tweet) {
-    const $tweet = `
-      <article class="tweet-container">
-        <header>
-          <div class="avatar-name">
-            <img class="avatar-img" src="${tweet.user.avatars}">
-            <p>${tweet.user.name}</p> 
-          </div>
-          <p>${tweet.user.handle}</p>
-        </header>
-        <p>${tweet.content.text}</p>
-        <br>
-        <footer>
-          <p>${tweet.content.date}</p> 
-          <div>
-            <button>RETWEET</button>
-            <button>SHARE</button>
-            <button>LIKE</button>
-        </div>
-        </footer>
-      </article>`
-
-    return $tweet;
-  }
+  
 
   // renderTweets(data);  
   
@@ -107,13 +109,23 @@ $(document).ready(function () {
       url: "/tweets",
       method: "POST",
       data: serializeData
-    }).then(result => {
-      console.log("result: ", result);
-    }).catch(err => {
-      console.log("ajax error caught");
-      console.log(err); // error
+    })
+    .then(() => {
+      $.ajax({
+        url: "/tweets",
+        method: "GET"
+      })
+      .then((data) => {
+        console.log("ajax data: ", data);
+        const $newTweet = createTweetElement(data[data.length-1]);
+        $(".tweet-feed").prepend($newTweet);
+      })
+        .catch(err => {
+          console.log("ajax error caught");
+          console.log(err); // error
+      });
     });
-  });
 
+  })  
 
-})
+});
