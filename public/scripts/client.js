@@ -31,10 +31,16 @@ const data = [
   }
 ]
 
+const escape =  function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const renderTweets = function(tweets) {
   for (let tweet of tweets) {
     const tweetAppended = createTweetElement(tweet);
-    $('.tweet-container').append(tweetAppended);
+    $('.tweet-feed').prepend(tweetAppended);
   }
 }
 
@@ -48,7 +54,7 @@ const createTweetElement = function(tweet) {
         </div>
         <p>${tweet.user.handle}</p>
       </header>
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
       <br>
       <footer>
         <p>${tweet.content.date}</p> 
@@ -64,27 +70,20 @@ const createTweetElement = function(tweet) {
 }
 
 $(document).ready(function () {
-  console.log("client script loaded");
-  console.log("data:", data);
-
+  $(".error-slide").hide()
   
-
-  // renderTweets(data);  
-  
-  // const loadTweets = function() {
-  //   const loadTweetData = renderTweets(data);
-  //   $.ajax({
-  //     url: "/tweets",
-  //     method: "GET",
-  //     data: loadTweetData
-  //   }).then(result => {
-  //     console.log("load tweet result: ", result);
-  //   }).catch(err => {
-  //     console.log("ajax error caught");
-  //     console.log(err); // error
-  //   });
-  // }
-  // loadTweets();
+  const loadTweets = function() {
+    $.ajax({
+      url: "/tweets",
+      method: "GET"
+    }).then(result => {
+      renderTweets(result);
+    }).catch(err => {
+      console.log("ajax error caught");
+      console.log(err); // error
+    });
+  }
+  loadTweets();
 
 
   $("form").on("submit", function(event) {
@@ -95,10 +94,14 @@ $(document).ready(function () {
     console.log("tweetContent: ", tweetContent);
     
     if (!tweetContent) {
-      alert("Cannot post an empty tweet!");
+      $(".error-text h3").html("Cannot post an empty tweet!");
+      $(".error-slide").slideDown();
+      return;
     };
     if (tweetContent.length > 140) {
-      alert("Too many characters in tweet!");
+      $(".error-text h3").html("Too many characters in tweet!");
+      $(".error-slide").slideDown();
+      return;
     };
 
     const serializeData = $(this).serialize();
@@ -117,6 +120,9 @@ $(document).ready(function () {
       })
       .then((data) => {
         console.log("ajax data: ", data);
+        $(".error-slide").slideUp();
+        $("#counter").val(140);
+        $("#tweet-text").val("");
         const $newTweet = createTweetElement(data[data.length-1]);
         $(".tweet-feed").prepend($newTweet);
       })

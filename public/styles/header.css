@@ -12,55 +12,16 @@
 
 }
 
-/* header.main-header div.hex {
-  margin-top: auto;
-} */
-
-
-/* .site-header {
-  position: relative;
-  background-color:  #4056A1;
-  height: 400px;
-  width: 100%;
-  border: 3px solid red;
+@media only screen and (min-width: 1024px) {
+  .main-header {
+    justify-content: flex-start;
+    padding: 2em 0 0 0;
+  }
 }
 
-.wrapper {
-  max-width: 1140px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-left: auto;
-  margin-right: auto;
+@media only screen and (min-width: 768px) {
+  .main-header {
+    justify-content: flex-start;
+    padding: 2em 0 0 0;
+  }
 }
-
-.site-header__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.header-avatar {
-  background-color: #5f4fa1;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-  /* justify-content: center;
-  align-items: center; */
-
-
-/* .user-name {
-  text-align: center;
-  color: #FFFFFF;
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-bg-image {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-} */ 
