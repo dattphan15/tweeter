@@ -27,7 +27,7 @@ const data = [
     },
     "created_at": 1461113959088
   }
-]
+];
 
 const escape =  function(str) {
   let div = document.createElement("div");
@@ -40,7 +40,7 @@ const renderTweets = function(tweets) {
     const tweetAppended = createTweetElement(tweet);
     $('.tweet-feed').prepend(tweetAppended);
   }
-}
+};
 
 const timeStamp = function(date) {
   let timeElapsedinSeconds = (Date.now() - date) / 1000;
@@ -48,16 +48,15 @@ const timeStamp = function(date) {
   let hoursPassed = Math.floor(timeElapsedinSeconds /  (60 * 60 * 24 * 24));
   let minutesPassed = Math.floor(timeElapsedinSeconds /  (60 * 60 * 24 * 60));
 
-    if (daysPassed > 1) {
-      return daysPassed + " days ago";
-    }
-    if (hoursPassed > 1) {
-      return hoursPassed + " hours ago";
-    }
-    else {
-      return minutesPassed + " minutes ago";
-    }
-}
+  if (daysPassed > 1) {
+    return daysPassed + " days ago";
+  }
+  if (hoursPassed > 1) {
+    return hoursPassed + " hours ago";
+  } else {
+    return minutesPassed + " minutes ago";
+  }
+};
 
 const createTweetElement = function(tweet) {
   const $tweet = `
@@ -78,12 +77,12 @@ const createTweetElement = function(tweet) {
           <span>&#9873</span>
       </div>
       </footer>
-    </article>`
+    </article>`;
   return $tweet;
-}
+};
 
-$(document).ready(function () {
-  $(".error-slide").hide()
+$(document).ready(function() {
+  $(".error-slide").hide();
   const loadTweets = function() {
     $.ajax({
       url: "/tweets",
@@ -93,7 +92,7 @@ $(document).ready(function () {
     }).catch(err => {
       console.log("ajax error caught");
     });
-  }
+  };
   loadTweets();
 
 
@@ -105,12 +104,12 @@ $(document).ready(function () {
       $(".error-text h3").html("Cannot post an empty tweet!");
       $(".error-slide").slideDown();
       return;
-    };
+    }
     if (tweetContent.length > 140) {
       $(".error-text h3").html("Too many characters in tweet!");
       $(".error-slide").slideDown();
       return;
-    };
+    }
 
     const serializeData = $(this).serialize();
     $.ajax({
@@ -118,24 +117,24 @@ $(document).ready(function () {
       method: "POST",
       data: serializeData
     })
-    .then(() => {
-      $.ajax({
-        url: "/tweets",
-        method: "GET"
-      })
-      .then((data) => {
-        console.log("ajax data: ", data);
-        $(".error-slide").slideUp();
-        $("#counter").val(140);
-        $("#tweet-text").val("");
-        const $newTweet = createTweetElement(data[data.length-1]);
-        $(".tweet-feed").prepend($newTweet);
-      })
-        .catch(err => {
-          console.log("ajax error caught");
+      .then(() => {
+        $.ajax({
+          url: "/tweets",
+          method: "GET"
+        })
+          .then((data) => {
+            console.log("ajax data: ", data);
+            $(".error-slide").slideUp();
+            $("#counter").val(140);
+            $("#tweet-text").val("");
+            const $newTweet = createTweetElement(data[data.length - 1]);
+            $(".tweet-feed").prepend($newTweet);
+          })
+          .catch(err => {
+            console.log("ajax error caught");
+          });
       });
-    });
 
-  })  
+  });
 
 });

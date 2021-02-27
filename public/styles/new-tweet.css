@@ -4,12 +4,17 @@
   color: rgb(255, 255, 255);
 }
 
+.twt-button-div {
+  margin-top: 5%;
+}
+
 output#counter {
   font-family: 'Bungee', sans-serif;
 }
 
-textarea#text-tweet {
-  background-color: transparent !important;
+textarea.newtwt#text-tweet {
+  background: red;
+  border: 5px red; 
 }
 
 .new-tweet form {

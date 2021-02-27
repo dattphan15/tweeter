@@ -27,13 +27,10 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
   </head>
-
 
     <!-- Top nav bar (fixed) -->
     <body>
-
       <nav> 
         <span class="logo">Tweeter</span>
         <span>Write a new tweet</span>
@@ -46,9 +43,7 @@
           <div>
               <h2>Kevin Phan</h2>
           </div> 
-  
         </header>
-
 
       <!-- Page-specific (main) content here -->
 
@@ -60,8 +55,8 @@
           <h2>Compose Tweet</h2>
           <form>
             <h3 class="labelarea" for="tweet-text">What are you humming about?</h3>
-            <textarea name="text" id="tweet-text"></textarea>
-            <div>
+            <textarea class="newtwt" name="text" id="tweet-text"></textarea>
+            <div class="twt-button-div">
               <button class="twtbutton" type="submit">Tweet</button>
               <output name="counter" id="counter" for="tweet-text">140</output>
             </div>
@@ -70,6 +65,7 @@
         
       <div class="tweet-feed">
         </div>
+        
       </main>
     </div>   
   </body>
