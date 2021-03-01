@@ -44,9 +44,9 @@ const renderTweets = function(tweets) {
 
 const timeStamp = function(date) {
   let timeElapsedinSeconds = (Date.now() - date) / 1000;
-  let daysPassed = Math.floor(timeElapsedinSeconds /  (60 * 60 * 24));
-  let hoursPassed = Math.floor(timeElapsedinSeconds /  (60 * 60 * 24 * 24));
-  let minutesPassed = Math.floor(timeElapsedinSeconds /  (60 * 60 * 24 * 60));
+  let minutesPassed = Math.floor(timeElapsedinSeconds /  (60));
+  let hoursPassed = Math.floor(minutesPassed /  (60));
+  let daysPassed = Math.floor(hoursPassed /  (24));
 
   if (daysPassed > 1) {
     return daysPassed + " days ago";

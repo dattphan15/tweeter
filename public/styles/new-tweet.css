@@ -54,7 +54,7 @@ article.tweet-container {
 
 article.tweet-container:hover {
   box-shadow: 10px 10px #add8e6bd;
-  margin: 20px;
+  transform: translate(-5px, -5px);
 }
 
 header.tweet-head {
