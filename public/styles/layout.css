@@ -31,5 +31,6 @@ body {
 main {
   width: 90%;
   margin-bottom: 40px;
+  margin-right: 3em;
   height: auto;
 }

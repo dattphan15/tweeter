@@ -12,9 +12,12 @@ output#counter {
   font-family: 'Bungee', sans-serif;
 }
 
-textarea.newtwt#text-tweet {
-  background: red;
-  border: 5px red; 
+#tweet-text {
+  background: transparent;
+  border: none;
+  border-bottom: 5px solid black;
+  outline: none;
+  resize: none;
 }
 
 .new-tweet form {
