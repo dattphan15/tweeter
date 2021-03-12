@@ -1,6 +1,7 @@
 $(document).ready(function() {
   console.log("We're connected!");
 
+  // tweet character counter
   $("#tweet-text").on("input", function() {
     console.log($(this).siblings("div").find("output"));
     let length = $(this).val().length;

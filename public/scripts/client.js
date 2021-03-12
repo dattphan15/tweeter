@@ -3,31 +3,6 @@
 * jQuery is already loaded
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
 
 const escape =  function(str) {
   let div = document.createElement("div");
@@ -35,6 +10,7 @@ const escape =  function(str) {
   return div.innerHTML;
 };
 
+// Renders all tweets onto homepage
 const renderTweets = function(tweets) {
   for (let tweet of tweets) {
     const tweetAppended = createTweetElement(tweet);
@@ -42,6 +18,7 @@ const renderTweets = function(tweets) {
   }
 };
 
+// Timestamp of when the tweet was created
 const timeStamp = function(date) {
   let timeElapsedinSeconds = (Date.now() - date) / 1000;
   let minutesPassed = Math.floor(timeElapsedinSeconds /  (60));
@@ -58,6 +35,7 @@ const timeStamp = function(date) {
   }
 };
 
+// New tweet html structure
 const createTweetElement = function(tweet) {
   const $tweet = `
     <article class="tweet-container">
@@ -95,10 +73,11 @@ $(document).ready(function() {
   };
   loadTweets();
 
-
+  // Events after tweet submission
   $("form").on("submit", function(event) {
     event.preventDefault();
-    // Counter value
+
+    // Shows error message if tweet is empty or contains too many characters
     let tweetContent = $("#tweet-text").val();
     if (!tweetContent) {
       $(".error-text h3").html("Cannot post an empty tweet!");
@@ -111,6 +90,7 @@ $(document).ready(function() {
       return;
     }
 
+    // Loads new tweet onto the page after posting
     const serializeData = $(this).serialize();
     $.ajax({
       url: "/tweets",
