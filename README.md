@@ -1,6 +1,6 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone. Originally forked from the Lighthouse Labs Tweeter Repository which provided a skeleton for students to complete.
 
 ## Final Product
 
